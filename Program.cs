@@ -5,13 +5,10 @@
     {
         private static void Main(string[] args)
         {
-            CreditCardPaymment pagoTarCredito = new CreditCardPaymment();
-            DebitCardPaymment pagoTarDebito = new DebitCardPaymment();
-
-            PaymentManager pagoAdmin = new PaymentManager(pagoTarCredito, pagoTarDebito);
-
-            pagoAdmin.ManagePayment();
-
+           PaymentModeFactory.Create(Mode.creditCard).MakePayment();
+           PaymentModeFactory.Create(Mode.debitCard).MakePayment();
+           PaymentModeFactory.Create(Mode.payPalpay).MakePayment();
+           PaymentModeFactory.Create(Mode.pse).MakePayment();
         }
     }
 
